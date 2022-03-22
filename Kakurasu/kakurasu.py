@@ -45,7 +45,7 @@ class kakurasu:
   def is_legal_state(self, state):
     for row_idx in range(self.size):
         for col_idx in range(self.size):
-            if state[row_idx][col_idx] == kakurasu.DOT;
+            if state[row_idx][col_idx] == kakurasu.DOT:
                 if self.can_have_dot_at(state, row_idx, col_idx) == False:
                     return False               
     return True
