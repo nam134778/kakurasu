@@ -1,8 +1,9 @@
 import time
 import functools
 import pathlib
-from Kakurasu.searchAlgo import AStarSearch, BreadthFirstSearch
+from AStarSearch import *
 from kakurasu import *
+from searchAlgo import *
 
 DIR_PATH = str(pathlib.Path(__file__).parent.resolve()) + '\\'
 
@@ -43,13 +44,15 @@ if __name__ == '__main__':
     [[int(i) for i in cur.split(' ')]]
     , input[1:], [])
     
-    row_const = grid[1]
-    col_const = grid[2]
+    row_const = grid[0]
+    col_const = grid[1]
     
     kaku = Kakurasu(board, row_const, col_const, n)
-
     a_star = AStarSearch()
-    bfs = BreadthFirstSearch()
+    start = time.time()
+    solution = a_star.solve(kaku)
+    end = time.time()
+    print("Time: ",end - start)
 
-    start
+    print("Solution: ",solution)
 

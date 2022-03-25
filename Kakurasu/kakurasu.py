@@ -1,3 +1,14 @@
+
+# def str_square_list(l, sep):
+    
+#     res = ""
+    
+#     for row in l:
+        
+#         res += str(row) + sep
+        
+#     return res
+
 class Kakurasu:
     UNSET = 0
     DOT = 1
@@ -17,14 +28,16 @@ class Kakurasu:
         for row_idx in range(self.size):
             ans = 0
             for col_idx in range(self.size):
-                ans = ans + (col_idx + 1) * state[row_idx][col_idx]
+                if state[row_idx][col_idx] == Kakurasu.DOT:
+                    ans = ans + (col_idx + 1) * state[row_idx][col_idx]
             if ans != self.row_const[row_idx]:
                 return False
         # Check col
         for col_idx in range(self.size):
             ans = 0
             for row_idx in range(self.size):
-                ans = ans + (row_idx + 1) * state[row_idx][col_idx]
+                if state[row_idx][col_idx] == Kakurasu.DOT:
+                    ans = ans + (row_idx + 1) * state[row_idx][col_idx]
             if ans != self.col_const[col_idx]:
                 return False
         return True
